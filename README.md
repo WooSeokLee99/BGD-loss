@@ -37,26 +37,76 @@ In regions where the boundary between foreground and background is ambiguous, sm
 
 
 ## Proposed Loss Function
-4
+
+<img src="assets/4-1.png" width="70%" />
+<img src="assets/4-2.png" width="70%" />
+<img src="assets/4-3.png" width="70%" />
+<br>
+1. Get boundary image with Erosion. (a)<br>
+2. Blur the boundary image with Gaussian kernel. (b)<br>
+3. Calc M value: Average of Gaussian value on baundary position. (c,d)<br>
+4. Calc difference between 4 different M.<br>
+<br>
+<img src="assets/4-4.png" width="70%" />
+<br>
+Each graph shows certical cross-section of results.<br>
+The pixel value in boundary position is 1 and maximum Gaussian value has set as 1 via normalization.<br>
+And we set other smaller values arbitrarily.
+
 
 ## Parameter
-5
+
+<img src="assets/5-1.png" width="70%" />
+<img src="assets/5-2.png" width="70%" />
+<br>
+The performance of the proposed loss function is influenced by the Gaussian kernel parameter σ.<br>
+Standard deviation σ controls the spatial range of boundary interaction.<br>
+In character segmentation tasks, approximately half of the average stroke width provides the best trade-off between boundary smoothness and localization.
+
 
 ## Outlier Robustness
-6
+
+<img src="assets/6.png" width="70%" />
+<br>
+(a) ∂G/∂x of the Gaussian kernel<br>
+(b) ∂G/∂x of the Gaussian kernel at y = 0<br>
+<br>
+The proposed loss function suppresses the influence of extreme outliers by relying on Gaussian-smoothed boundary responses rather than raw Euclidean distances.<br>
+As a result, isolated noisy pixels or local GT errors do not dominate the loss value, leading to more stable optimization.
 
 
 ## Comparision with Hausdorff Distance Loss
-7
+
+<img src="assets/7.png" width="70%" />
+<br>
+Although both methods measure boundary discrepancies, Hausdorff distance relies on brute-force nearest-neighbor search between boundary pixels, resulting in high computational cost and sensitivity to outliers.<br>
+In contrast, the proposed method achieves similar boundary sensitivity with significantly lower computational complexity.
+
 
 ## Quantitative Evaluation
-8
 
+<img src="assets/8-1.png" width="70%" />
+<img src="assets/8-2.png" width="70%" />
+<br>
+Quantitative results show that the proposed loss function consistently outperforms conventional region-based and boundary-based loss functions across multiple evaluation metrics.<br>
+The improvements are especially noticeable in boundary-sensitive metrics under noisy document conditions.
 
 ## Qualitative Evaluation
-9
+
+<img src="assets/9-2.png" width="100%" />
+<br>
+Qualitative comparisons demonstrate that the proposed method produces smoother and more coherent boundaries in challenging cases such as ink bleeding, broken strokes, and background noise.<br>
+The predicted masks better preserve the overall character structure compared to baseline losses.
+
 
 ## Generalization
-10
+
+<img src="assets/10.png" width="70%" />
+<br>
+The model trained with the proposed loss function generalizes well to other historical documents that were not included in the training and validation set.<br>
+According to the result, the model produces stable and visually consistent segmentation results, indicating practical applicability to real-world restoration scenarios.
+
+
+
 
 
