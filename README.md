@@ -47,6 +47,7 @@ In regions where the boundary between foreground and background is ambiguous, sm
 3. Calc M value: Average of Gaussian value on baundary position. (c,d)<br>
 4. Calc difference between 4 different M.<br>
 <br>
+<br>
 <img src="assets/4-4.png" width="70%" />
 <br>
 Each graph shows certical cross-section of results.<br>
@@ -90,6 +91,7 @@ In contrast, the proposed method achieves similar boundary sensitivity with sign
 <br>
 Quantitative results show that the proposed loss function consistently outperforms conventional region-based and boundary-based loss functions across multiple evaluation metrics.<br>
 The improvements are especially noticeable in boundary-sensitive metrics under noisy document conditions.
+
 
 ## Qualitative Evaluation
 
