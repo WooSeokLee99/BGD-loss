@@ -1,4 +1,4 @@
-## Boundary Gaussian distance loss for computer vision model
+## Boundary Gaussian Distance Loss
 
 Paper: Boundary Gaussian Distance Loss Function for Enhancing Character Extraction from High-Resolution Scans of Ancient Metal-Type Printed Books<br>
 <br>
