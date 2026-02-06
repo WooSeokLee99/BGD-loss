@@ -12,7 +12,7 @@ Instead of directly computing pixel-wise distances between boundary points, the 
 
 ## Challenge - Raw Data
 
-<img src="assets/raw_data.png" width="70%" />
+<img src="assets/2.png" width="70%" />
 <br>
 Unlike Gutenberg's printing, traditional Korean printing relied on manual pressing techniques using wooden sticks or cotton pads. 
 As a result, the printing quality is often inconsistent, leading to various degradation patterns in scanned documents.<br>
@@ -29,7 +29,7 @@ Due to these factors, character boundaries are often ambiguous, and existing seg
 
 ## Challenge - Labeling
 
-<img src="assets/labeling.png" width="70%" />
+<img src="assets/3.png" width="70%" />
 Low-quality printing also reduce the reliability of ground truth(GT).
 Since GT masks are manually refined from model-generated pre-segmentation results, pixel-level inaccuracies are unavoidable, especially when dealing with high-resolution historical documents.<br>
 <br>
@@ -37,21 +37,26 @@ In regions where the boundary between foreground and background is ambiguous, sm
 
 
 ## Proposed Loss Function
+4
 
-
+## Parameter
+5
 
 ## Outlier Robustness
-
+6
 
 
 ## Comparision with Hausdorff Distance Loss
-
+7
 
 ## Quantitative Evaluation
-
+8
 
 
 ## Qualitative Evaluation
-
+9
 
 ## Generalization
+10
+
+
