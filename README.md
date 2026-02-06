@@ -30,7 +30,8 @@ Due to these factors, character boundaries are often ambiguous, and existing seg
 ## Challenge - Labeling
 
 <img src="assets/3.png" width="70%" />
-Low-quality printing also reduce the reliability of ground truth(GT).
+<br>
+Low-quality printing also reduce the reliability of ground truth(GT).<br>
 Since GT masks are manually refined from model-generated pre-segmentation results, pixel-level inaccuracies are unavoidable, especially when dealing with high-resolution historical documents.<br>
 <br>
 In regions where the boundary between foreground and background is ambiguous, small labeling errors frequently remain, which introduces noise into the training process and limits the performance of boundary-sensitive segmentation models.
