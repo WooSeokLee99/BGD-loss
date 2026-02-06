@@ -7,7 +7,7 @@ DOI: https://doi.org/10.3390/electronics13101957<br>
 To address the challenges of poor-quality raw data and imperfect GT labels, we propose a boundary-aware loss function based on Gaussian distance. 
 The proposed loss function encourages the model to produce smooth and structurally consistent boundaries by comparing the boundary regions of the prediction and GT after Gaussian smoothing.<br>
 <br>
-Instead of directly computing pixel-wise distances between boundary points, the method approximate distance value through Gaussian-blurred boundary maps, which stabilizes training under noisy supervision and degraded document conditions.
+Instead of directly computing pixel-wise distances between boundary points, the method approximates distance value through Gaussian-blurred boundary maps, which stabilizes training under noisy supervision and degraded document conditions.
 
 
 ## Challenge - Raw Data
@@ -21,7 +21,7 @@ Common defects include:<br>
 <br>
 ● Holes inside characters caused by uneven ink distribution (a-upper)<br>
 ● Ink spreading or splashing outside character regions<br>
-● Irregular strokes caused by ununiform printing pressure<br>
+● Irregular strokes caused by un-uniform printing pressure<br>
 ● Ink diffusion along paper fibers that were not fully processed during traditional paper manufacturing (a-lower)<br>
 <br>
 Due to these factors, character boundaries are often ambiguous, and existing segmentation networks struggle to effectively suppress noise such as broken strokes, internal holes, and background stains, resulting in unsatisfactory boundary quality.
@@ -31,7 +31,7 @@ Due to these factors, character boundaries are often ambiguous, and existing seg
 
 <img src="assets/3.png" width="100%" />
 <br>
-Low-quality printing also reduce the reliability of ground truth(GT).<br>
+Low-quality printing also reduces the reliability of ground truth(GT).<br>
 Since GT masks are manually refined from model-generated pre-segmentation results, pixel-level inaccuracies are unavoidable, especially when dealing with high-resolution historical documents.<br>
 <br>
 In regions where the boundary between foreground and background is ambiguous, small labeling errors frequently remain, which introduces noise into the training process and limits the performance of boundary-sensitive segmentation models.
@@ -44,14 +44,14 @@ In regions where the boundary between foreground and background is ambiguous, sm
 <img src="assets/4-3.png" width="70%" />
 <br>
 1. Get boundary image with Erosion. (a)<br>
-2. Blur the boundary image with Gaussian kernel. (b)<br>
-3. Calc M value: Average of Gaussian value on baundary position. (c,d)<br>
-4. Calc difference between 4 different M.<br>
+2. Blur the boundary image with a Gaussian kernel. (b)<br>
+3. Calculate M valuees: Average of Gaussian response at baundary position. (c,d)<br>
+4. Calculate difference between 4 different M.<br>
 <br>
 <br>
 <img src="assets/4-4.png" width="100%" />
 <br>
-Each graph shows certical cross-section of results.<br>
+Each graph shows vertical cross-section of the predictions.<br>
 The pixel value in boundary position is 1 and maximum Gaussian value has set as 1 via normalization.<br>
 And we set other smaller values arbitrarily.
 
@@ -106,7 +106,7 @@ The predicted masks better preserve the overall character structure compared to 
 
 <img src="assets/10.png" width="100%" />
 <br>
-The model trained with the proposed loss function generalizes well to other historical document(Jikji, 1372) that were not included in the training and validation set.<br>
+The model trained with the proposed loss function generalizes well to other historical document (Jikji, 1372) that were not included in the training and validation set.<br>
 According to the result, the model produces stable and visually consistent segmentation results, indicating practical applicability to real-world restoration scenarios.
 
 
