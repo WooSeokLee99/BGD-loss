@@ -12,7 +12,7 @@ Instead of directly computing pixel-wise distances between boundary points, the 
 
 ## Challenge - Raw Data
 
-<img src="assets/2.png" width="70%" />
+<img src="assets/2.png" width="100%" />
 <br>
 Unlike Gutenberg's printing, traditional Korean printing relied on manual pressing techniques using wooden sticks or cotton pads. 
 As a result, the printing quality is often inconsistent, leading to various degradation patterns in scanned documents.<br>
@@ -29,7 +29,7 @@ Due to these factors, character boundaries are often ambiguous, and existing seg
 
 ## Challenge - Labeling
 
-<img src="assets/3.png" width="70%" />
+<img src="assets/3.png" width="100%" />
 <br>
 Low-quality printing also reduce the reliability of ground truth(GT).<br>
 Since GT masks are manually refined from model-generated pre-segmentation results, pixel-level inaccuracies are unavoidable, especially when dealing with high-resolution historical documents.<br>
@@ -39,7 +39,7 @@ In regions where the boundary between foreground and background is ambiguous, sm
 
 ## Proposed Loss Function
 
-<img src="assets/4-1.png" width="70%" />
+<img src="assets/4-1.png" width="100%" />
 <img src="assets/4-2.png" width="70%" />
 <img src="assets/4-3.png" width="70%" />
 <br>
@@ -49,7 +49,7 @@ In regions where the boundary between foreground and background is ambiguous, sm
 4. Calc difference between 4 different M.<br>
 <br>
 <br>
-<img src="assets/4-4.png" width="70%" />
+<img src="assets/4-4.png" width="100%" />
 <br>
 Each graph shows certical cross-section of results.<br>
 The pixel value in boundary position is 1 and maximum Gaussian value has set as 1 via normalization.<br>
@@ -104,9 +104,9 @@ The predicted masks better preserve the overall character structure compared to 
 
 ## Generalization
 
-<img src="assets/10.png" width="70%" />
+<img src="assets/10.png" width="100%" />
 <br>
-The model trained with the proposed loss function generalizes well to other historical documents that were not included in the training and validation set.<br>
+The model trained with the proposed loss function generalizes well to other historical document(Jikji, 1372) that were not included in the training and validation set.<br>
 According to the result, the model produces stable and visually consistent segmentation results, indicating practical applicability to real-world restoration scenarios.
 
 
